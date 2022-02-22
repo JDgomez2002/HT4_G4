@@ -20,12 +20,15 @@ public class MainG4{
     public static void main(String[] args) {
 
         //CALCULADORA GRUPO4 (NUESTRA CALCULADORA)
-        
+        PostfixCalculator calculadora = null;
 
         Vista v = new Vista();
 
         v.bienvenida();
+        int stacktype = v.getStackType();
+        calculadora.get_instance(stacktype);
 
+        
 
         v.despedida();
     }
@@ -73,12 +76,12 @@ class Vista{
 
     public int getStackType(){
         int type = 0;
-        System.out.println(" Primero dinos con cual instancia de Stack deseas iniciar...");
+        System.out.println("Primero dinos con cual instancia de Stack deseas iniciar...");
         System.out.println("1. VectorStack");
         System.out.println("2. ArrayListStack");
         System.out.println("3. Single Linked List Stack");
         System.out.println("4. Double Linked List Stack");
-        String s  = "Ingresa tu expresion Infix: ";
+        String s  = "Ingresa la implementacion de Stack que desees: ";
         type = solicitar_int(s, 1, 4);
         return type;
     }

@@ -11,18 +11,18 @@
 //Actividad: HT4
 
 public class PostfixCalculator {
-    PostfixCalculator calculator;
+    private static PostfixCalculator calculator;
+    private iStack<String> v;
 
-    public PostfixCalculator(){
-        this.calculator = new PostfixCalculator();
+    private PostfixCalculator(int StacType){
+        this.calculator = new PostfixCalculator(StacType);
+        FactoryStack<String> fStack = new FactoryStack<String>();
+        this.v = fStack.returnStackType(StacType);
     }
 
-    public void get_instance(){
+    public void get_instance(int StacType){
         if(!(calculator==null)){
-            PostfixCalculator();
-        }
-        else{
-
+            this.calculator = new PostfixCalculator(StacType);
         }
     }
 
