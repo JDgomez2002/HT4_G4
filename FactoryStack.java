@@ -8,9 +8,34 @@
 //Sección 41
 //Actividad: HT4
 
-public class FactoryStack
- {
-    public iStack<String> getStack(){
-        return null;
+public class FactoryStack<E>{
+    private iStack<E> MyStack;
+    
+    public iStack<E> returnStackType(int type){
+        switch (type) {
+
+            //Vector Stack
+            case 1:
+                this.MyStack = new VectorStack<E>();
+                break;
+
+            //ArrayList Stack
+            case 2:
+                this.MyStack = new ArrayListStack<E>();
+                break;
+
+            //Single Linked List Stack
+            case 3:
+                this.MyStack = new ListStack<E>(true);
+                break;
+        
+            //Double Linked List
+            default:
+                this.MyStack = new ListStack<E>(false);
+                break;
+        }
+        return this.MyStack;
     }
+
+
 }
