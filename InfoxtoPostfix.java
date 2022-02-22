@@ -23,7 +23,7 @@ public class InfoxtoPostfix {
     }
 
     public String translate(String infix) {
-        FactoryStack factory = new FactoryStack();
+        FactoryStack factory = new FactoryStack<String>();
         iStack<String> stack = factory.getStack();
         
         stack.add("#");
