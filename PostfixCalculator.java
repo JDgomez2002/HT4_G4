@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Test;
+// import org.junit.jupiter.api.Test;
 
 //Universidad del Valle de Guatemala
 //Algoritmos y Estructura de Datos
@@ -11,18 +11,32 @@ import org.junit.jupiter.api.Test;
 //Actividad: HT4
 
 public class PostfixCalculator {
+    PostfixCalculator calculator;
+
+    public PostfixCalculator(){
+        this.calculator = new PostfixCalculator();
+    }
+
+    public void get_instance(){
+        if(!(calculator==null)){
+            PostfixCalculator();
+        }
+        else{
+
+        }
+    }
+
     /**
      * Calculates an entire operation.
      * @param operation String containing the operation to be calculated.
      * @return double with the result of the operation
      */
-    public double calculate(String operation){
+    public double calculate(String operation, int StacType){
 
         //Operation
         // "1 2 + 3 4 *"
-        int type;
         FactoryStack<String> fStack = new FactoryStack<String>();
-        iStack<String> v = fStack.returnStackType(type);
+        iStack<String> v = fStack.returnStackType(StacType);
         String[] cadena = null;
         double respuesta = 0;
         
@@ -101,14 +115,14 @@ public class PostfixCalculator {
     }
 
     
-    @Test
-    //Prueba para demostrar que la calculadora funciona correctamente
-    public void testCalculate(){
-        assertEquals(36.0, calculate("1 2 + 3 4 * *"));
-        assertEquals(10, calculate("4 2 / 6 2 + + "));
-        assertEquals(0, calculate("8 2 2 -"));
-        assertEquals(3, calculate("7 8 + 6 + 9 3 /"));
-    }
+    // @Test
+    // //Prueba para demostrar que la calculadora funciona correctamente
+    // public void testCalculate(){
+    //     assertEquals(36.0, calculate("1 2 + 3 4 * *"));
+    //     assertEquals(10, calculate("4 2 / 6 2 + + "));
+    //     assertEquals(0, calculate("8 2 2 -"));
+    //     assertEquals(3, calculate("7 8 + 6 + 9 3 /"));
+    // }
 }
 
 
