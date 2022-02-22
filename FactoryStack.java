@@ -10,5 +10,7 @@
 
 public class FactoryStack
  {
-    
+    public iStack<String> getStack(){
+        return null;
+    }
 }
