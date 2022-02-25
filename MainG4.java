@@ -10,6 +10,9 @@
 
 import java.io.File;
 import java.util.*;
+
+import javax.naming.spi.InitialContextFactoryBuilder;
+
 import java.time.LocalTime;
 
 /**
@@ -20,13 +23,21 @@ public class MainG4{
     public static void main(String[] args) {
 
         //CALCULADORA GRUPO4 (NUESTRA CALCULADORA)
-        PostfixCalculator calculadora = null;
+        
 
         Vista v = new Vista();
 
         v.bienvenida();
         int stacktype = v.getStackType();
-        calculadora.get_instance(stacktype);
+
+        PostfixCalculator calculadora = new PostfixCalculator();
+
+        InfoxtoPostfix convertor = new InfoxtoPostfix();
+
+        String postfix = convertor.translate("(A + B) * (C + D)");
+        System.out.println("(A + B) * (C + D)");
+        System.out.println(postfix);
+        
 
         
 

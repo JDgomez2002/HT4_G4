@@ -11,32 +11,32 @@
 //Actividad: HT4
 
 public class PostfixCalculator {
-    private static PostfixCalculator calculator;
-    private iStack<String> v;
+    // private static PostfixCalculator calculator;
+    // private iStack<String> v;
 
-    private PostfixCalculator(int StacType){
-        this.calculator = new PostfixCalculator(StacType);
-        FactoryStack<String> fStack = new FactoryStack<String>();
-        this.v = fStack.returnStackType(StacType);
-    }
+    // public PostfixCalculator(int stackType){
+    //     this.calculator = new PostfixCalculator(stackType);
+    //     FactoryStack<String> fStack = new FactoryStack<String>();
+    //     this.v = fStack.returnStackType(stackType);
+    // }
 
-    public void get_instance(int StacType){
-        if(!(calculator==null)){
-            this.calculator = new PostfixCalculator(StacType);
-        }
-    }
+    // public void get_instance(int StackType){
+    //     if(!(calculator==null)){
+    //         this.calculator = new PostfixCalculator(StackType);
+    //     }
+    // }
 
     /**
      * Calculates an entire operation.
      * @param operation String containing the operation to be calculated.
      * @return double with the result of the operation
      */
-    public double calculate(String operation, int StacType){
+    public double calculate(String operation, int StackType){
 
         //Operation
         // "1 2 + 3 4 *"
         FactoryStack<String> fStack = new FactoryStack<String>();
-        iStack<String> v = fStack.returnStackType(StacType);
+        iStack<String> v = fStack.returnStackType(StackType);
         String[] cadena = null;
         double respuesta = 0;
         
