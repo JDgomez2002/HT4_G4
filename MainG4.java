@@ -20,10 +20,7 @@ import java.time.LocalTime;
  */
 
 public class MainG4{
-    public static void main(String[] args) {
-
-        //CALCULADORA GRUPO4 (NUESTRA CALCULADORA)
-        
+    public static void main(String[] args) {   
 
         Vista v = new Vista();
 
@@ -31,20 +28,39 @@ public class MainG4{
         int stacktype = v.getStackType();
 
         PostfixCalculator calculadora = new PostfixCalculator();
-
         InfoxtoPostfix convertor = new InfoxtoPostfix();
 
-        String infix = "( 2 + 3 ) * ( 5 + 1 )";
-        String postfix = convertor.translate(infix);
-        System.out.println("Infix: "+infix);
-        System.out.println("Postfix: "+postfix);
-        
-        double resultado = calculadora.calculate(postfix, stacktype);
+        // String infix = "( 2 + 3 ) * ( 5 + 1 )";
+        // String postfix = convertor.translate(infix);
 
-        System.out.println();
-        System.out.println("Resultado: "+resultado);
+        String infix;
+        String postfix;
+        double resultado;
+
+        boolean continuar = true;
+        while(continuar){
+            infix = v.getInfixExpression();
+            postfix = convertor.translate(infix);
+            System.out.println("Infix: "+infix);
+            System.out.println("Postfix: "+postfix);
+
+            resultado = calculadora.calculate(postfix, stacktype);
+
+            System.out.println("Resultado: "+resultado);
+            System.out.println("---------------------------------------------");
+
+            continuar = v.seguir_covirtiendo();
+        }
+
+        // System.out.println("Infix: "+infix);
+        // System.out.println("Postfix: "+postfix);
         
-        // v.despedida();
+        // double resultado = calculadora.calculate(postfix, stacktype);
+
+        // System.out.println();
+        // System.out.println("Resultado: "+resultado);
+        
+        v.despedida();
     }
 }
 
@@ -71,7 +87,7 @@ class Vista{
                 int numero = scan.nextInt();
                 if((numero>inferior)&&(numero<superior)){
                     entero = numero;
-                    System.out.println("---------------------------------------------------------------------------------------------------------------------");
+                    System.out.println("---------------------------------------------");
                     continuar = false; 
                 }
                 else{
@@ -101,7 +117,7 @@ class Vista{
                 }
                 else{
                     txt = texto;
-                    System.out.println("---------------------------------------------------------------------------------------------------------------------");
+                    System.out.println("---------------------------------------------");
                     continuar = false;                   
                 }
             }
@@ -124,6 +140,22 @@ class Vista{
         return type;
     }
 
+    public String getInfixExpression(){
+        String s = "";
+        System.out.println();
+        System.out.println("Ingresa tu expresion Infix para traducirla a Postfix y posteriormente obtener el resultado!");
+        System.out.println("Debes ingresar la expresion con espacios entre cada caracter...");
+        System.out.println("Si no, la conversion no funcionara...");
+        System.out.println("- Sigue las instrucciones por favor.");
+        System.out.println();
+        System.out.println("Ejemplo: ( 2 + 3 ) * ( 5 + 1 )");
+        System.out.println("Conversion: 2 3 + 5 1 + *");
+        System.out.println("Resultado: 30");
+        String s2 = "- Ingresa tu expresion Infix: ";
+        s = solicitar_string(s2);
+        return s;
+    }
+
     /**
      * Bienvenida al usuario.
      * 
@@ -144,6 +176,20 @@ class Vista{
         System.out.println("\tDiviertete calculando!!!");
         System.out.println("---------------------------------------------");
         System.out.println();
+    }
+
+    public boolean seguir_covirtiendo(){
+        boolean seguir = true;
+        System.out.println();
+        System.out.println("Desea salir del programa?");
+        System.out.println("Presione 1 si desea seguir conviertiendo.");
+        System.out.println("Presione 2 para abandonar el programa.");
+        String s = "Desea seguir en el conviertiendo??? ";
+        int desicion = solicitar_int(s, 1, 2);
+        if(desicion==2){
+            seguir = false;
+        }
+        return seguir;
     }
 
     /**
