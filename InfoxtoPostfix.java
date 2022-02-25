@@ -1,6 +1,6 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
+// import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Test;
+// import org.junit.jupiter.api.Test;
 
 // //Universidad del Valle de Guatemala
 // //Algoritmos y Estructura de Datos
@@ -71,14 +71,14 @@ public class InfoxtoPostfix {
         return postfix;
     }
 
-    @Test
-    //Prueba para demostrar que la calculadora funciona correctamente
-    public void testCalculate(){
-        assertEquals("3 4 + 8 * ", translate("( 3 + 4 ) * 8"));
-        assertEquals("7 6 + 9 + 7 2 ^ - ", translate("7 + 6 + 9 - 7 ^ 2"));
-        assertEquals("4 8 / 9 x ^ 6 * + ", translate("4 / 8 + 9 ^ x * 6 "));
-        assertEquals("4 x * 8 + 2 * ", translate("( 4 * x + 8 ) * 2"));
-        assertEquals("A B + C D + * ", translate("( A + B ) * ( C + D )"));
-    }
+    // @Test
+    // //Prueba para demostrar que la calculadora funciona correctamente
+    // public void testCalculate(){
+    //     assertEquals("3 4 + 8 * ", translate("( 3 + 4 ) * 8"));
+    //     assertEquals("7 6 + 9 + 7 2 ^ - ", translate("7 + 6 + 9 - 7 ^ 2"));
+    //     assertEquals("4 8 / 9 x ^ 6 * + ", translate("4 / 8 + 9 ^ x * 6 "));
+    //     assertEquals("4 x * 8 + 2 * ", translate("( 4 * x + 8 ) * 2"));
+    //     assertEquals("A B + C D + * ", translate("( A + B ) * ( C + D )"));
+    // }
     
 }

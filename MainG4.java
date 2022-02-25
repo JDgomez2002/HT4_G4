@@ -34,14 +34,17 @@ public class MainG4{
 
         InfoxtoPostfix convertor = new InfoxtoPostfix();
 
-        String postfix = convertor.translate("( A + B ) * ( C + D )");
-        System.out.println("(A + B) * (C + D)");
-        System.out.println(postfix);
+        String infix = "( 2 + 3 ) * ( 5 + 1 )";
+        String postfix = convertor.translate(infix);
+        System.out.println("Infix: "+infix);
+        System.out.println("Postfix: "+postfix);
         
+        double resultado = calculadora.calculate(postfix, stacktype);
 
+        System.out.println();
+        System.out.println("Resultado: "+resultado);
         
-
-        v.despedida();
+        // v.despedida();
     }
 }
 
@@ -83,6 +86,30 @@ class Vista{
             }
         
         return entero;
+    }
+
+    private String solicitar_string(String s){
+        String txt = "";
+        boolean continuar = true;
+        try{
+            System.out.println(s);
+            while(continuar){
+                this.scan = new Scanner(System.in);
+                String texto = scan.nextLine();
+                if(texto.equals("")){
+                    System.out.println("\t Error: debe de ingresar un texto valido.");
+                }
+                else{
+                    txt = texto;
+                    System.out.println("---------------------------------------------------------------------------------------------------------------------");
+                    continuar = false;                   
+                }
+            }
+        }
+        catch(Exception e){
+            System.out.println("\t Error: debe de ingresar un texto valido.");
+        }
+        return txt;
     }
 
     public int getStackType(){
