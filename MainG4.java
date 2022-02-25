@@ -34,7 +34,7 @@ public class MainG4{
 
         InfoxtoPostfix convertor = new InfoxtoPostfix();
 
-        String postfix = convertor.translate("(A + B) * (C + D)");
+        String postfix = convertor.translate("( A + B ) * ( C + D )");
         System.out.println("(A + B) * (C + D)");
         System.out.println(postfix);
         
